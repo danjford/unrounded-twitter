@@ -1,0 +1,15 @@
+$border: 2px;
+
+.me a,
+button,
+.avatar,
+.Avatar,
+.RichEditor,
+#search-query,
+.AdaptiveMedia,
+.ProfileAvatar,
+.ProfileAvatar-image,
+.DashboardProfileCard-avatarImage
+{
+  border-radius: $border !important;
+}
