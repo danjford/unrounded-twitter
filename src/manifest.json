@@ -18,6 +18,5 @@
   "icons": {
     "128": "./img/icon128.png"
   },
-  "homepage_url": "${homepage}",
-  "options_page": "options.html"
+  "homepage_url": "${homepage}"
 }

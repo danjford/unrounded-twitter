@@ -1,19 +1,19 @@
 {
   "name": "unrounded-twitter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Making twitter not so round.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clean && npm-run-all copy:* --parallel watch:* styles:*",
-    "clean": "rm -drf dist && mkdir -p ./dist/{css,img,js}",
-    "copy:images": "cp -r ./src/img/ ./dist/img/",
-    "copy:html": "cp -r ./src/*.html ./dist/",
+    "start": "npm run clean && npm-run-all copy:* --parallel watch:*",
+    "clean": "rm -drf dist && mkdir -p ./dist/{css,img}",
+    "copy:images": "cp -r ./src/img/*.png ./dist/img/",
     "copy:manifest": "node ./tasks/manifestReplace.js",
-    "watch:html": "watchman ./src/*.html \"npm run copy:html\"",
     "watch:images": "watchman ./src/img \"npm run copy:images\"",
     "watch:manifest": "watchman ./src/manifest.json \"npm run copy:manifest\"",
-    "styles:scss": "sass --watch --load-path=node_modules/bourbon/app/assets/stylesheets --style=compressed src/scss/base.scss:dist/css/main.css --trace",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:scss": "sass --watch --load-path=node_modules/bourbon/app/assets/stylesheets --style=compressed src/scss/base.scss:dist/css/main.css --trace",
+    "styles:scss": "sass --load-path=node_modules/bourbon/app/assets/stylesheets --style=compressed src/scss/base.scss:dist/css/main.css --trace --sourcemap=none",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run clean && npm-run-all copy:* styles:* --parallel && rm -drf dist.zip && zip -r dist.zip dist"
   },
   "repository": {
     "type": "git",
